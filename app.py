@@ -15,6 +15,8 @@ def homepage():
   # print(prompts)
   return render_template("homepage.html", prompts=prompts)
 
-@app.route("/story")
+@app.route("/results")
 def showResults():
-  return render_template("story.html")
+  generatedStory = story.generate(request.args)
+
+  return render_template("results.html", generatedStory=generatedStory)
