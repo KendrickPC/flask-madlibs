@@ -151,11 +151,41 @@ Start with the form:
   <h1>Madlibs</h1>
   <!-- Not sending the data anywhere yet -->
   <form action="">
-    <!-- Writing a flask for loop: -->
     {% for prompt in prompts %}
-    <p>
+    <p>{{prompt}}:
+      <input name="{{ prompt }}">
+    </p>
+    {% endfor %}
+    <button>Submit</button>
   </form>
-  <button>Submit</button>
+  
 </body>
 </html>
+```
+
+19. Inside app.py:
+
+```python
+from flask import Flask, request, render_template
+from flask_debugtoolbar import DebugToolbarExtension
+from stories import story
+
+app = Flask(__name__)
+
+# need to be underneath app because it relies on app being defined.
+app.config['SECRET_KEY'] = "secret"
+debug = DebugToolbarExtension(app)
+
+@app.route("/")
+def homepage():
+  prompts = story.prompts
+  # print("prompts:")
+  # print(prompts)
+  return render_template("homepage.html", prompts=prompts)
+```
+
+20. Currently, form action is not sending the input data anywhere yet.
+I'm going to make a results.html file in the templates and create another route to results.html in app.py
+```python
+
 ```

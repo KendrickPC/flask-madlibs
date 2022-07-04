@@ -6,13 +6,14 @@
 <body>
   <h1>Madlibs</h1>
   <!-- Not sending the data anywhere yet -->
-  <form action="">
+  <form action="/story">
     {% for prompt in prompts %}
     <p>{{prompt}}:
       <input name="{{ prompt }}">
     </p>
     {% endfor %}
+    <button>Submit</button>
   </form>
-  <button>Submit</button>
+  
 </body>
 </html>
