@@ -187,5 +187,24 @@ def homepage():
 20. Currently, form action is not sending the input data anywhere yet.
 I'm going to make a results.html file in the templates and create another route to results.html in app.py
 ```python
+@app.route("/results")
+def showResults():
+  generatedStory = story.generate(request.args)
 
+  return render_template("results.html", generatedStory=generatedStory)
 ```
+
+21. Inside results.html (created in the template folder):
+```html
+<!doctype html>
+<html>
+<head>
+  <title>Madlibs</title>
+</head>
+<body>
+  <h1>Here is our generated story:</h1>
+  <h5>{{generatedStory}}</h5>
+</body>
+</html>
+```
+
