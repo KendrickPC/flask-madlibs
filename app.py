@@ -13,4 +13,4 @@ def homepage():
   prompts = story.prompts
   # print("prompts:")
   # print(prompts)
-  return render_template("homepage.html")
+  return render_template("homepage.html", prompts=prompts)

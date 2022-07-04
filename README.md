@@ -151,7 +151,9 @@ Start with the form:
   <h1>Madlibs</h1>
   <!-- Not sending the data anywhere yet -->
   <form action="">
-
+    <!-- Writing a flask for loop: -->
+    {% for prompt in prompts %}
+    <p>
   </form>
   <button>Submit</button>
 </body>
