@@ -8,8 +8,8 @@
   <!-- Not sending the data anywhere yet -->
   <form action="">
     {% for prompt in prompts %}
-    <p>{{prompt}}
-
+    <p>{{prompt}}:
+      <input name="{{ prompt }}">
     </p>
     {% endfor %}
   </form>
